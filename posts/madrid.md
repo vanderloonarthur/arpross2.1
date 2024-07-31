@@ -165,7 +165,7 @@ Dus ik pak mijn tas (snel) en vertrek richting het tankstation Tango aan de Haag
   <img src="{{ site.baseurl }}/assets/images/crows_vg.jpeg" alt="orenveld met kraaien, Vincent van Gogh" />
   <figcaption>Korenveld met kraaien, Vincent van Gogh</figcaption>
 <p>
-Ik wil echter niet te dicht bij het huis mijn ten- tje opzetten in verband met eventuele waakhonden, dus loop ik in de richting van het graanveld. Daar zet ik, naast de kant van de weg, mijn tentje op. Ik zou het opgezette tentje een 7 geven, maar het begint te regenen en ik ben blij om iets te hebben, dus ik wurm me de tent in. Al snel blijkt hij niet goed te staan, hij staat schuin en er komt enige regen de tent in.
+Ik wil echter niet te dicht bij het huis mijn tentje opzetten in verband met eventuele waakhonden, dus loop ik in de richting van het graanveld. Daar zet ik, naast de kant van de weg, mijn tentje op. Ik zou het opgezette tentje een 7 geven, maar het begint te regenen en ik ben blij om iets te hebben, dus ik wurm me de tent in. Al snel blijkt hij niet goed te staan, hij staat schuin en er komt enige regen de tent in.
 </p>
 <h2> (In de buurt van) Antwerpen</h2>
 <p>
