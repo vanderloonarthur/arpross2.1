@@ -181,6 +181,9 @@ Teken ik,
 Arthur Ross</p>
 <img src="{{ site.baseurl }}/assets/images/vangogh.jpeg" alt="Boerderij in het koren, Vincent van Gogh" />
 <figcaption>Boerderij in het koren, Vincent van Gogh</figcaption>
+ <footer>
+        <p>&copy; 2024 Arthur Ross. Alle rechten voorbehouden.</p>
+    </footer>
     <!-- Back to Gallery button -->
     <div style="text-align: center;">
   <a href='{{ site.baseurl }}../../travelblog.html' class="back-to-gallery">Back to Gallery</a>

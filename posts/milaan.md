@@ -220,6 +220,9 @@ permalink: /posts/milaan.md/
       De Maffia is in controle hier en de mensen zijn er bang voor!
       Gelukkig heb ik niet veel geld dus zullen ze mij met rust laten.</p>
     </div>
+     <footer>
+        <p>&copy; 2024 Arthur Ross. Alle rechten voorbehouden.</p>
+    </footer>
     <!-- Back to Gallery button -->
     <div style="text-align: center;">
   <a href='{{ site.baseurl }}../../travelblog.html' class="back-to-gallery">Back to Gallery</a>

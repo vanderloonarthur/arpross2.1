@@ -28,7 +28,7 @@ permalink: /travelblog.html/
         header, nav, footer {
             text-align: center;
             padding: 1em;
-            background-color: #333;
+            background-color: black;
             color: white;
         }
         .image-gallery {
@@ -362,7 +362,7 @@ permalink: /travelblog.html/
 
             setTimeout(() => {
                 closeModal();
-                feedbackButton.classList.add('hidden');
+                feedbackButton.style.display = 'none'; // Hide the button after successful submission
             }, 2000);
         })
         .catch(error => {
@@ -372,10 +372,12 @@ permalink: /travelblog.html/
 
             setTimeout(() => {
                 closeModal();
+                feedbackButton.style.display = 'none'; // Hide the button in case of error
             }, 2000);
         });
     });
 });
+
 
     
         function scrollToTop() {
