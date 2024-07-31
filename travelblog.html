@@ -41,6 +41,56 @@ permalink: /travelblog.html/
             position: relative;
             overflow: hidden;
         }
+        /* Center the feedback button */
+.centered-button {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0; /* Adjust the spacing as needed */
+}
+
+#feedbackButton {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+/* Additional Styles for Emoticons in Select */
+select {
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+select option {
+    font-size: 1em;
+}
+
+select option[value="Zeer gelukkig"] {
+    color: #4CAF50; /* Green for very happy */
+}
+
+select option[value="Gelukkig"] {
+    color: #8BC34A; /* Light green for happy */
+}
+
+select option[value="Neutraal"] {
+    color: #FFC107; /* Amber for neutral */
+}
+
+select option[value="Ongelukkig"] {
+    color: #FF9800; /* Orange for unhappy */
+}
+
+select option[value="Zeer ongelukkig"] {
+    color: #F44336; /* Red for very unhappy */
+}
+
+#feedbackButton:hover {
+    background: #e64a19;
+}
         .image-item img {
             width: 100%;
             height: auto;
@@ -268,12 +318,12 @@ permalink: /travelblog.html/
                 </a>
             </div>
         </section>
-
-        <!-- Feedback Button -->
-        <button id="feedbackButton" onclick="openModal()" aria-label="Open feedback modal">Geef Feedback</button>
-
+<!-- Centered Feedback Button -->
+<div class="centered-button">
+    <button id="feedbackButton" onclick="openModal()" aria-label="Open feedback modal">Geef Feedback</button>
+</div>
         <!-- Feedback Modal -->
-        <!-- Feedback Modal -->
+      <!-- Feedback Modal -->
 <div id="feedback-modal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
@@ -288,23 +338,24 @@ permalink: /travelblog.html/
                 <input type="email" id="email" name="email" placeholder="Voer uw e-mail in" required>
             </div>
             <div>
-                <label for="selectedFeedback">Select Feedback:</label>
+                <label for="selectedFeedback">Selecteer Feedback:</label>
                 <select id="selectedFeedback" name="selectedFeedback">
-                    <option value="Zeer gelukkig">Zeer gelukkig</option>
-                    <option value="Gelukkig">Gelukkig</option>
-                    <option value="Neutraal">Neutraal</option>
-                    <option value="Ongelukkig">Ongelukkig</option>
-                    <option value="Zeer ongelukkig">Zeer ongelukkig</option>
+                    <option value="Zeer gelukkig">😀 Zeer gelukkig</option>
+                    <option value="Gelukkig">🙂 Gelukkig</option>
+                    <option value="Neutraal">😐 Neutraal</option>
+                    <option value="Ongelukkig">🙁 Ongelukkig</option>
+                    <option value="Zeer ongelukkig">😠 Zeer ongelukkig</option>
                 </select>
             </div>
             <div>
-                <label for="additionalComments">Additional Comments:</label>
+                <label for="additionalComments">Aanvullende opmerkingen:</label>
                 <textarea id="additionalComments" name="additionalComments" rows="4" placeholder="Voer hier uw commentaar in..."></textarea>
             </div>
-            <button type="submit">Submit Feedback</button>
+            <button type="submit">Geef Feedback</button>
         </form>
     </div>
 </div>
+
 
 
         <!-- Scroll to Top Button -->
