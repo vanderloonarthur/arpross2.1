@@ -15,7 +15,7 @@ permalink: /travelblog.html/
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Gallery - Reis door Europa met Arthur Ross!">
     <meta name="twitter:description" content="Ontdek de schoonheid van Europa met deze boeiende reisverhalen van Arthur Ross.">
-    <meta name="twitter:image" content="https://www.arthurross.nl/assets/images/madride.png"> <!-- Fixed URL -->
+    <meta name="twitter:image" content="https://www.arthurross.nl/assets/images/madride.png">
     <title>Gallery - Reis door Europa met Arthur Ross!</title>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-25QWYDWGEP"></script>
@@ -96,6 +96,9 @@ permalink: /travelblog.html/
             height: auto;
             display: block;
             transition: transform 0.3s;
+        }
+        .image-item img.pressed {
+            border: 5px solid green;
         }
         .image-item:hover img {
             transform: scale(1.05);
@@ -281,6 +284,7 @@ permalink: /travelblog.html/
 <body>
     <header>
         <nav>
+            <h1>Reis door Europa met Arthur Ross!</h1>
             <!-- Navigation links -->
         </nav>
     </header>
@@ -290,7 +294,7 @@ permalink: /travelblog.html/
             <!-- Gallery Items -->
             <div class="image-item">
                 <a href="/posts/milaan.md" class="golden-link">
-                    <img src="/assets/images/skyline.jpg" alt="Milaan">
+                    <img src="/assets/images/skyline.jpg" alt="Milaan" data-image-id="milaan">
                     <div class="image-caption">
                         <p>Naar Milaan zonder geld of plan [mei 2016]</p>
                     </div>
@@ -298,7 +302,7 @@ permalink: /travelblog.html/
             </div>
             <div class="image-item">
                 <a href="/posts/madrid.md" class="golden-link">
-                    <img src="/assets/images/bear-1.jpg" alt="Madrid">
+                    <img src="/assets/images/bear-1.jpg" alt="Madrid" data-image-id="madrid">
                     <div class="image-caption">
                         <p>Vincent van Gogh achterna [juni/ juli 2020]</p>
                     </div>
@@ -306,7 +310,7 @@ permalink: /travelblog.html/
             </div>
             <div class="image-item">
                 <a href="/posts/stuttgart.html" class="golden-link">
-                    <img src="/assets/images/stuttgart_stag.jpg" alt="Stuttgart">
+                    <img src="/assets/images/stuttgart_stag.jpg" alt="Stuttgart" data-image-id="stuttgart">
                     <div class="image-caption">
                         <p>Marshall Stuttgart [december 2020]</p>
                     </div>
@@ -314,7 +318,7 @@ permalink: /travelblog.html/
             </div>
             <div class="image-item">
                 <a href="/posts/Edinburgh.md" class="golden-link">
-                    <img src="/assets/images/edin.jpg" alt="Edinburgh">
+                    <img src="/assets/images/edin.jpg" alt="Edinburgh" data-image-id="edinburgh">
                     <div class="image-caption">
                         <p>D'Arthur is coming home! [april 2024]</p>
                     </div>
@@ -374,22 +378,22 @@ permalink: /travelblog.html/
             modal.classList.add('fade-in');
             modal.style.display = "flex";
         }
-
+    
         function closeModal() {
             const modal = document.getElementById("feedback-modal");
             modal.classList.remove('fade-in');
             modal.classList.add('fade-out');
-
+    
             setTimeout(() => {
                 modal.style.display = "none";
                 modal.classList.remove('fade-out');
             }, 300); // Matches the fade-out transition duration
         }
-
+    
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
+    
         window.onscroll = function() {
             const scrollUpBtn = document.getElementById("scrollUpBtn");
             if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
@@ -398,9 +402,9 @@ permalink: /travelblog.html/
                 scrollUpBtn.style.display = "none";
             }
         };
-
+    
         var form = document.getElementById("my-form");
-
+    
         async function handleSubmit(event) {
             event.preventDefault();
             var status = document.getElementById("my-form-status");
@@ -436,8 +440,32 @@ permalink: /travelblog.html/
                 status.innerHTML = "Oeps! Er was een probleem bij het verzenden van uw formulier";
             });
         }
-
+    
         form.addEventListener("submit", handleSubmit);
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.image-item img');
+
+            // Apply green border to images that were pressed in the session
+            images.forEach(image => {
+                const imageId = image.getAttribute('data-image-id');
+                if (sessionStorage.getItem(`pressed_${imageId}`)) {
+                    image.classList.add('pressed');
+                }
+            });
+
+            images.forEach(image => {
+                image.addEventListener('click', function() {
+                    const imageId = this.getAttribute('data-image-id');
+                    // Remove the 'pressed' class from all images
+                    images.forEach(img => img.classList.remove('pressed'));
+                    // Add the 'pressed' class to the clicked image
+                    this.classList.add('pressed');
+                    // Store the clicked image ID in sessionStorage
+                    sessionStorage.setItem(`pressed_${imageId}`, 'true');
+                });
+            });
+        });
     </script>
 </body>
 </html>
