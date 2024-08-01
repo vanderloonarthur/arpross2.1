@@ -251,5 +251,3 @@ permalink: /posts/madrid.md/
           modalImage.addEventListener("click", closeModal);
         });
       </script>
-</body>
-</html>
