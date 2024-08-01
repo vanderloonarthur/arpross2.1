@@ -98,7 +98,7 @@ permalink: /travelblog.html/
             transition: transform 0.3s;
         }
         .image-item img.pressed {
-            border: 5px solid green;
+            border: 5px solid green; /* Green border for pressed images */
         }
         .image-item:hover img {
             transform: scale(1.05);
@@ -446,7 +446,12 @@ permalink: /travelblog.html/
         document.addEventListener('DOMContentLoaded', function() {
             const images = document.querySelectorAll('.image-item img');
 
-            // Apply green border to images that were pressed in the session
+            // Ensure no images have the 'pressed' class on page load
+            images.forEach(image => {
+                image.classList.remove('pressed');
+            });
+
+            // Apply the 'pressed' class based on sessionStorage
             images.forEach(image => {
                 const imageId = image.getAttribute('data-image-id');
                 if (sessionStorage.getItem(`pressed_${imageId}`)) {
