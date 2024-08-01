@@ -95,17 +95,18 @@ permalink: /travelblog.html/
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.3s;
-    /* Remove border styling from here */
+    transition: transform 0.3s, border 0.3s; /* Added border transition */
+    /* Removed border styling from here */
 }
 
 .image-item img.pressed {
     border: 5px solid green; /* Green border for pressed images */
 }
 
-        .image-item:hover img {
-            transform: scale(1.05);
-        }
+.image-item:hover img {
+    transform: scale(1.05);
+}
+
         .image-caption {
             position: absolute;
             bottom: 0;
@@ -474,6 +475,7 @@ permalink: /travelblog.html/
         });
     });
 });
+
 
     </script>
 </body>
