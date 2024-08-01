@@ -15,15 +15,15 @@ permalink: /travelblog.html/
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Gallery - Reis door Europa met Arthur Ross!">
     <meta name="twitter:description" content="Ontdek de schoonheid van Europa met deze boeiende reisverhalen van Arthur Ross.">
-    <meta name="twitter:image" content="https://x.com/ArthurRoss">
+    <meta name="twitter:image" content="https://www.arthurross.nl/assets/images/madride.png"> <!-- Fixed URL -->
     <title>Gallery - Reis door Europa met Arthur Ross!</title>
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HB19E314J8"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-25QWYDWGEP"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+        function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-HB19E314J8');
+        gtag('config', 'G-25QWYDWGEP');
     </script>
     <!-- External Stylesheet for Styling -->
     <link rel="stylesheet" href="styles.css">
@@ -51,13 +51,11 @@ permalink: /travelblog.html/
             position: relative;
             overflow: hidden;
         }
-        /* Center the feedback button */
         .centered-button {
             display: flex;
             justify-content: center;
             margin: 20px 0; /* Adjust the spacing as needed */
         }
-
         #feedbackButton {
             background-color: #ff5722;
             color: white;
@@ -68,36 +66,28 @@ permalink: /travelblog.html/
             cursor: pointer;
             transition: background 0.3s;
         }
-        /* Additional Styles for Emoticons in Select */
         select {
             font-size: 1em;
             line-height: 1.5em;
         }
-
         select option {
             font-size: 1em;
         }
-
         select option[value="Zeer gelukkig"] {
             color: #4CAF50; /* Green for very happy */
         }
-
         select option[value="Gelukkig"] {
             color: #8BC34A; /* Light green for happy */
         }
-
         select option[value="Neutraal"] {
             color: #FFC107; /* Amber for neutral */
         }
-
         select option[value="Ongelukkig"] {
             color: #FF9800; /* Orange for unhappy */
         }
-
         select option[value="Zeer ongelukkig"] {
             color: #F44336; /* Red for very unhappy */
         }
-
         #feedbackButton:hover {
             background: #e64a19;
         }
@@ -331,49 +321,44 @@ permalink: /travelblog.html/
                 </a>
             </div>
         </section>
-<!-- Centered Feedback Button -->
-<div class="centered-button">
-    <button id="feedbackButton" class="feedback-btn" onclick="openModal()" aria-label="Open feedback modal">Geef Feedback</button>
-</div>
+        <!-- Centered Feedback Button -->
+        <div class="centered-button">
+            <button id="feedbackButton" class="feedback-btn" onclick="openModal()" aria-label="Open feedback modal">Geef Feedback</button>
+        </div>
 
         <!-- Feedback Modal -->
-      <!-- Feedback Modal -->
-<!-- Feedback Modal -->
-<div id="feedback-modal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2>Hoe blij bent u met de website?</h2>
-        
-        <!-- Updated Form HTML -->
-        <form id="my-form" action="https://formspree.io/f/xblrooaq" method="POST">
-            <div>
-                <label for="name">Naam:</label>
-                <input type="text" id="name" name="name" placeholder="Voer uw naam in" required>
+        <div id="feedback-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Hoe blij bent u met de website?</h2>
+                <form id="my-form" action="https://formspree.io/f/xblrooaq" method="POST">
+                    <div>
+                        <label for="name">Naam:</label>
+                        <input type="text" id="name" name="name" placeholder="Voer uw naam in" required>
+                    </div>
+                    <div>
+                        <label>Email:</label>
+                        <input type="email" name="email" placeholder="Voer uw e-mail in" required />
+                    </div>
+                    <div>
+                        <label for="selectedFeedback">Selecteer Feedback:</label>
+                        <select id="selectedFeedback" name="selectedFeedback">
+                            <option value="Zeer gelukkig">😀 Zeer gelukkig</option>
+                            <option value="Gelukkig">🙂 Gelukkig</option>
+                            <option value="Neutraal">😐 Neutraal</option>
+                            <option value="Ongelukkig">🙁 Ongelukkig</option>
+                            <option value="Zeer ongelukkig">😠 Zeer ongelukkig</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Message:</label>
+                        <input type="text" name="message" placeholder="Voer uw bericht in" required />
+                    </div>
+                    <button id="my-form-button" type="submit">Geef Feedback</button>
+                    <p id="my-form-status"></p>
+                </form>
             </div>
-            <div>
-                <label>Email:</label>
-                <input type="email" name="email" placeholder="Voer uw e-mail in" required />
-            </div>
-            <div>
-                <label for="selectedFeedback">Selecteer Feedback:</label>
-                <select id="selectedFeedback" name="selectedFeedback">
-                    <option value="Zeer gelukkig">😀 Zeer gelukkig</option>
-                    <option value="Gelukkig">🙂 Gelukkig</option>
-                    <option value="Neutraal">😐 Neutraal</option>
-                    <option value="Ongelukkig">🙁 Ongelukkig</option>
-                    <option value="Zeer ongelukkig">😠 Zeer ongelukkig</option>
-                </select>
-            </div>
-            <div>
-                <label>Message:</label>
-                <input type="text" name="message" placeholder="Voer uw bericht in" required />
-            </div>
-            <button id="my-form-button" type="submit">Geef Feedback</button>
-            <p id="my-form-status"></p>
-        </form>
-    </div>
-</div>
-
+        </div>
 
         <!-- Scroll to Top Button -->
         <button id="scrollUpBtn" onclick="scrollToTop()" aria-label="Scroll naar boven">Scroll naar boven</button>
@@ -385,77 +370,74 @@ permalink: /travelblog.html/
 
     <script>
         function openModal() {
-    const modal = document.getElementById("feedback-modal");
-    modal.classList.add('fade-in');
-    modal.style.display = "flex";
-}
-
-function closeModal() {
-    const modal = document.getElementById("feedback-modal");
-    modal.classList.remove('fade-in');
-    modal.classList.add('fade-out');
-
-    setTimeout(() => {
-        modal.style.display = "none";
-        modal.classList.remove('fade-out');
-    }, 300); // Matches the fade-out transition duration
-}
-
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-window.onscroll = function() {
-    const scrollUpBtn = document.getElementById("scrollUpBtn");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        scrollUpBtn.style.display = "block";
-    } else {
-        scrollUpBtn.style.display = "none";
-    }
-};
-
-var form = document.getElementById("my-form");
-
-async function handleSubmit(event) {
-    event.preventDefault();
-    var status = document.getElementById("my-form-status");
-    var data = new FormData(event.target);
-    fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {
-            'Accept': 'application/json'
+            const modal = document.getElementById("feedback-modal");
+            modal.classList.add('fade-in');
+            modal.style.display = "flex";
         }
-    }).then(response => {
-        if (response.ok) {
-            status.innerHTML = "Bedankt voor uw inzending!";
-            form.reset();
-            var buttons = document.querySelectorAll('.feedback-btn');
-            buttons.forEach(button => {
-                button.style.backgroundColor = 'green';
-                button.style.color = 'white';
-            });
+
+        function closeModal() {
+            const modal = document.getElementById("feedback-modal");
+            modal.classList.remove('fade-in');
+            modal.classList.add('fade-out');
+
             setTimeout(() => {
-                closeModal();
-            }, 2000); // Delay to show the success message before closing the modal
-        } else {
-            response.json().then(data => {
-                if (Object.hasOwn(data, 'errors')) {
-                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                } else {
-                    status.innerHTML = "Oeps! Er was een probleem bij het verzenden van uw formulier";
+                modal.style.display = "none";
+                modal.classList.remove('fade-out');
+            }, 300); // Matches the fade-out transition duration
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.onscroll = function() {
+            const scrollUpBtn = document.getElementById("scrollUpBtn");
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollUpBtn.style.display = "block";
+            } else {
+                scrollUpBtn.style.display = "none";
+            }
+        };
+
+        var form = document.getElementById("my-form");
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            var status = document.getElementById("my-form-status");
+            var data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
                 }
+            }).then(response => {
+                if (response.ok) {
+                    status.innerHTML = "Bedankt voor uw inzending!";
+                    form.reset();
+                    var buttons = document.querySelectorAll('.feedback-btn');
+                    buttons.forEach(button => {
+                        button.style.backgroundColor = 'green';
+                        button.style.color = 'white';
+                    });
+                    setTimeout(() => {
+                        closeModal();
+                    }, 2000); // Delay to show the success message before closing the modal
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            status.innerHTML = "Oeps! Er was een probleem bij het verzenden van uw formulier";
+                        }
+                    });
+                }
+            }).catch(error => {
+                status.innerHTML = "Oeps! Er was een probleem bij het verzenden van uw formulier";
             });
         }
-    }).catch(error => {
-        status.innerHTML = "Oeps! Er was een probleem bij het verzenden van uw formulier";
-    });
-}
 
-form.addEventListener("submit", handleSubmit);
-
+        form.addEventListener("submit", handleSubmit);
     </script>
-    
-    
 </body>
 </html>

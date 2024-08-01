@@ -8,6 +8,17 @@ permalink: /posts/Edinburgh.md/
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reis naar Madrid</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-25QWYDWGEP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-25QWYDWGEP');
+  </script>
+
   <style>
     body, html {
       height: 100%;
@@ -19,7 +30,7 @@ permalink: /posts/Edinburgh.md/
     body, p {
       color: white;
     }
-    h1{
+    h1 {
       color: green;
     }
     .back-to-gallery {
@@ -194,7 +205,7 @@ permalink: /posts/Edinburgh.md/
       </p>
       <p>
         De volgende dag, donderdag 11 april, ging ik op zoek naar een tankstation om te vragen of iemand me over het kanaal wilde smokkelen.
-        Eerst heb ik zo’n anderhalf uur gelopen tot ik bij een “geschikt tankstation” aankwam. Toen heb ik zo’n 4 à 5 uur iedereen aangesproken om te vragen voor een lift, maar niemand durfde me mee te nemen.
+        Eerst heb ik zo’n anderhalf uur gelopen tot ik bij een “geschikt tankstation” aangekwam. Toen heb ik zo’n 4 à 5 uur iedereen aangesproken om te vragen voor een lift, maar niemand durfde me mee te nemen.
         Naast mij zag ik ook een aantal dozijn vluchtelingen uit Sudan, wanhopig op zoek naar een lift. Ik zag er 2 richting een busje lopen. De één leidde de chauffeur af terwijl de andere naar binnen klauterde. Die zal nu wel in Engeland zijn.
         Uiteindelijk vroeg ik een dame en haar zoon of ze me kon meenemen. Ze zei dat ze zondag pas ging, maar dat zou natuurlijk te laat zijn. Wel bracht ze me naar de ferry’s.
       </p>
@@ -229,9 +240,9 @@ permalink: /posts/Edinburgh.md/
       </p>
     </div>
   </div>
-   <footer>
-        <p>&copy; 2024 Arthur Ross. Alle rechten voorbehouden.</p>
-    </footer>
+  <footer>
+    <p>&copy; 2024 Arthur Ross. Alle rechten voorbehouden.</p>
+  </footer>
   <div style="text-align: center;">
     <a href='{{ site.baseurl }}../../travelblog.html' class="back-to-gallery">Back to Gallery</a>
   </div>
