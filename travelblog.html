@@ -37,76 +37,37 @@ permalink: /travelblog.html/
         }
         header, nav, footer {
             text-align: center;
-            padding: 1em;
+            padding: 0.5em; /* Reduced padding */
             background-color: black;
             color: white;
         }
+        main {
+            margin-top: 20px; /* Adds margin to create space for the feedback button */
+            padding-top: 0; /* Removes top padding */
+        }
         .image-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 15px;
             padding: 20px;
         }
         .image-item {
             position: relative;
             overflow: hidden;
-        }
-        .centered-button {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0; /* Adjust the spacing as needed */
-        }
-        #feedbackButton {
-            background-color: #ff5722;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        select {
-            font-size: 1em;
-            line-height: 1.5em;
-        }
-        select option {
-            font-size: 1em;
-        }
-        select option[value="Zeer gelukkig"] {
-            color: #4CAF50; /* Green for very happy */
-        }
-        select option[value="Gelukkig"] {
-            color: #8BC34A; /* Light green for happy */
-        }
-        select option[value="Neutraal"] {
-            color: #FFC107; /* Amber for neutral */
-        }
-        select option[value="Ongelukkig"] {
-            color: #FF9800; /* Orange for unhappy */
-        }
-        select option[value="Zeer ongelukkig"] {
-            color: #F44336; /* Red for very unhappy */
-        }
-        #feedbackButton:hover {
-            background: #e64a19;
+            height: 300px;
         }
         .image-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s, border 0.3s; /* Added border transition */
-    /* Removed border styling from here */
-}
-
-.image-item img.pressed {
-    border: 5px solid green; /* Green border for pressed images */
-}
-
-.image-item:hover img {
-    transform: scale(1.05);
-}
-
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .image-item img.pressed {
+            border: 5px solid #00ff00; /* Bright green border */
+        }
+        .image-item:hover img {
+            transform: scale(1.05);
+        }
         .image-caption {
             position: absolute;
             bottom: 0;
@@ -146,6 +107,7 @@ permalink: /travelblog.html/
             max-width: 500px;
             position: relative;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin-top: 20px; /* Adjust as needed to move the modal content up */
         }
         .modal .close {
             position: absolute;
@@ -170,24 +132,31 @@ permalink: /travelblog.html/
             text-align: center;
         }
         .modal-success {
-            background: #4CAF50; /* Green */
+            background: #4CAF50;
             color: white;
         }
         .modal-error {
-            background: #F44336; /* Red */
+            background: #F44336;
             color: white;
         }
-        .button-green {
-            background-color: green;
+        .feedback-btn {
+            background-color: #ff5722;
             color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s;
         }
-        .button-red {
-            background-color: red;
-            color: white;
+        .feedback-btn:hover {
+            background: #e64a19;
         }
-        .button-white {
-            background-color: white;
-            color: black;
+        .centered-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0; /* Adds margin to move it away from the image grid */
         }
         form {
             display: flex;
@@ -226,8 +195,8 @@ permalink: /travelblog.html/
         }
         #scrollUpBtn {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 10px; /* Adjust position from the bottom */
+            right: 10px; /* Adjust position from the right */
             padding: 10px;
             background-color: red;
             color: white;
@@ -237,19 +206,16 @@ permalink: /travelblog.html/
             display: none;
         }
         #scrollUpBtn:hover {
-            background-color: red;
+            background-color: darkred;
         }
         footer {
             font-size: 0.9em;
+            margin-top: 20px; /* Moves the footer up */
         }
         .hidden {
             display: none;
         }
-        /* Responsive Styles */
         @media (max-width: 768px) {
-            .image-gallery {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
             .modal-content {
                 width: 95%;
             }
@@ -295,7 +261,6 @@ permalink: /travelblog.html/
 
     <main>
         <section class="image-gallery">
-            <!-- Gallery Items -->
             <div class="image-item">
                 <a href="/posts/milaan.md" class="golden-link">
                     <img src="/assets/images/skyline.jpg" alt="Milaan" data-image-id="milaan">
@@ -329,12 +294,10 @@ permalink: /travelblog.html/
                 </a>
             </div>
         </section>
-        <!-- Centered Feedback Button -->
         <div class="centered-button">
             <button id="feedbackButton" class="feedback-btn" onclick="openModal()" aria-label="Open feedback modal">Geef Feedback</button>
         </div>
 
-        <!-- Feedback Modal -->
         <div id="feedback-modal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
@@ -345,8 +308,8 @@ permalink: /travelblog.html/
                         <input type="text" id="name" name="name" placeholder="Voer uw naam in" required>
                     </div>
                     <div>
-                        <label>Email:</label>
-                        <input type="email" name="email" placeholder="Voer uw e-mail in" required />
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Voer uw e-mail in" required>
                     </div>
                     <div>
                         <label for="selectedFeedback">Selecteer Feedback:</label>
@@ -359,8 +322,8 @@ permalink: /travelblog.html/
                         </select>
                     </div>
                     <div>
-                        <label>Message:</label>
-                        <input type="text" name="message" placeholder="Voer uw bericht in" required />
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" placeholder="Voer uw bericht in" required></textarea>
                     </div>
                     <button id="my-form-button" type="submit">Geef Feedback</button>
                     <p id="my-form-status"></p>
@@ -368,7 +331,6 @@ permalink: /travelblog.html/
             </div>
         </div>
 
-        <!-- Scroll to Top Button -->
         <button id="scrollUpBtn" onclick="scrollToTop()" aria-label="Scroll naar boven">Scroll naar boven</button>
     </main>
 
@@ -407,76 +369,42 @@ permalink: /travelblog.html/
             }
         };
     
-        var form = document.getElementById("my-form");
-    
-        async function handleSubmit(event) {
+        document.getElementById("my-form").addEventListener("submit", async function(event) {
             event.preventDefault();
             var status = document.getElementById("my-form-status");
             var data = new FormData(event.target);
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
+            try {
+                const response = await fetch(event.target.action, {
+                    method: event.target.method,
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
                 if (response.ok) {
                     status.innerHTML = "Bedankt voor uw inzending!";
-                    form.reset();
-                    var buttons = document.querySelectorAll('.feedback-btn');
-                    buttons.forEach(button => {
-                        button.style.backgroundColor = 'green';
-                        button.style.color = 'white';
-                    });
-                    setTimeout(() => {
-                        closeModal();
-                    }, 2000); // Delay to show the success message before closing the modal
+                    event.target.reset();
+                    document.getElementById("feedbackButton").style.backgroundColor = 'green';
+                    document.getElementById("feedbackButton").style.color = 'white';
+                    setTimeout(() => closeModal(), 2000);
                 } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                        } else {
-                            status.innerHTML = "Oeps! Er was een probleem bij het verzenden van uw formulier";
-                        }
-                    });
+                    const data = await response.json();
+                    if (data.errors) {
+                        status.innerHTML = data.errors.map(error => error.message).join(", ");
+                    } else {
+                        status.innerHTML = "Oeps! Er was een probleem bij het verzenden van uw formulier";
+                    }
                 }
-            }).catch(error => {
+            } catch (error) {
                 status.innerHTML = "Oeps! Er was een probleem bij het verzenden van uw formulier";
-            });
-        }
-    
-        form.addEventListener("submit", handleSubmit);
+            }
+        });
     
         document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('.image-item img');
-
-    // Ensure no images have the 'pressed' class on page load
-    images.forEach(image => {
-        image.classList.remove('pressed');
-    });
-
-    // Apply the 'pressed' class based on sessionStorage
-    images.forEach(image => {
-        const imageId = image.getAttribute('data-image-id');
-        if (sessionStorage.getItem(`pressed_${imageId}`)) {
-            image.classList.add('pressed');
-        }
-    });
-
-    images.forEach(image => {
-        image.addEventListener('click', function() {
-            const imageId = this.getAttribute('data-image-id');
-            // Remove the 'pressed' class from all images
-            images.forEach(img => img.classList.remove('pressed'));
-            // Add the 'pressed' class to the clicked image
-            this.classList.add('pressed');
-            // Store the clicked image ID in sessionStorage
-            sessionStorage.setItem(`pressed_${imageId}`, 'true');
+            document.querySelectorAll('.image-item img').forEach(image => {
+                image.addEventListener('click', function() {
+                    image.classList.toggle('pressed');
+                });
+            });
         });
-    });
-});
-
-
     </script>
 </body>
 </html>
