@@ -78,6 +78,15 @@ main {
     box-sizing: border-box; /* Ensure the border is included in the element's width and height */
     animation: vibrate 1s infinite; /* Apply vibrate animation */
 }
+.image-item img.second-pressed {
+    border-bottom: 5px solid red;
+    border-right: 5px solid red;
+    border-top: 5px solid red;
+    border-left: 5px solid red;
+    box-sizing: border-box; /* Ensure the border is included in the element's width and height */
+    animation: none; /* Remove the vibrate animation */
+}
+
 
 @keyframes vibrate {
     0% { border-color: #FFD700; } /* Bright gold */
@@ -428,21 +437,33 @@ footer {
     
         document.addEventListener('DOMContentLoaded', function() {
     const images = document.querySelectorAll('.image-item img');
+
     images.forEach(image => {
         const imageId = image.getAttribute('data-image-id');
-        if (localStorage.getItem(imageId) === 'pressed') {
+        let clickCount = parseInt(localStorage.getItem(`${imageId}-clicks`) || '0', 10);
+        
+        if (clickCount === 1) {
             image.classList.add('pressed');
+        } else if (clickCount >= 2) {
+            image.classList.add('second-pressed');
         }
 
         image.addEventListener('click', function() {
-            if (image.classList.toggle('pressed')) {
-                localStorage.setItem(imageId, 'pressed');
-            } else {
-                localStorage.removeItem(imageId);
+            clickCount++;
+            localStorage.setItem(`${imageId}-clicks`, clickCount);
+            
+            if (clickCount === 1) {
+                image.classList.add('pressed');
+            } else if (clickCount >= 2) {
+                image.classList.remove('pressed');
+                image.classList.add('second-pressed');
+            } else if (clickCount === 0) {
+                image.classList.remove('pressed', 'second-pressed');
             }
         });
     });
 });
+
     </script>
 </body>
 </html>
