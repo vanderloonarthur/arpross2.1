@@ -29,234 +29,255 @@ permalink: /travelblog.html/
     <link rel="stylesheet" href="styles.css">
     <style>
         body, html {
-            height: 100%;
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: black;
-            color: white;
-        }
-        header, nav, footer {
-            text-align: center;
-            padding: 0.5em; /* Reduced padding */
-            background-color: black;
-            color: white;
-        }
-        main {
-            margin-top: 20px; /* Adds margin to create space for the feedback button */
-            padding-top: 0; /* Removes top padding */
-        }
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 15px;
-            padding: 20px;
-        }
-        .image-item {
-            position: relative;
-            overflow: hidden;
-            height: 300px;
-        }
-        .image-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s, border 0.3s;
-        }
-        .image-item img.pressed {
-            border: 5px solid silver;
-            animation: vibrate 0.5s infinite; /* Added animation */
-        }
-        @keyframes vibrate {
-            0% { border-color: #FFD700; }
-            25% { border-color: #FFC700; }
-            50% { border-color: #FFB700; }
-            75% { border-color: #FFC700; }
-            100% { border-color: #FFD700; }
-        }
-        .image-item:hover img {
-            transform: scale(1.05);
-        }
-        .image-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-        .modal.fade-in {
-            display: flex;
-            opacity: 1;
-        }
-        .modal.fade-out {
-            opacity: 0;
-        }
-        .modal-content {
-            background: #2e2e2e;
-            color: #f5f5f5;
-            padding: 20px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 500px;
-            position: relative;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            margin-top: 20px; /* Adjust as needed to move the modal content up */
-        }
-        .modal .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #444;
-            color: #f5f5f5;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5em;
-            cursor: pointer;
-            padding: 5px;
-            transition: background 0.3s;
-        }
-        .modal .close:hover {
-            background: #666;
-        }
-        .modal-success, .modal-error {
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 20px;
-            text-align: center;
-        }
-        .modal-success {
-            background: #4CAF50;
-            color: white;
-        }
-        .modal-error {
-            background: #F44336;
-            color: white;
-        }
-        .feedback-btn {
-            background-color: #ff5722;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .feedback-btn:hover {
-            background: #e64a19;
-        }
-        .centered-button {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px 0; /* Adds margin to move it away from the image grid */
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        label {
-            font-size: 1.1em;
-        }
-        input, select, textarea {
-            background: #444;
-            border: 1px solid #555;
-            border-radius: 5px;
-            color: #f5f5f5;
-            padding: 10px;
-            font-size: 1em;
-            transition: background 0.3s, border-color 0.3s;
-        }
-        input:focus, select:focus, textarea:focus {
-            background: #555;
-            border-color: #666;
-            outline: none;
-        }
-        button {
-            background: #ff5722;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        button:hover {
-            background: #e64a19;
-        }
-        #scrollUpBtn {
-            position: fixed;
-            bottom: 10px; /* Adjust position from the bottom */
-            right: 10px; /* Adjust position from the right */
-            padding: 10px;
-            background-color: red;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            display: none;
-        }
-        #scrollUpBtn:hover {
-            background-color: darkred;
-        }
-        footer {
-            font-size: 0.9em;
-            margin-top: 20px; /* Moves the footer up */
-        }
-        .hidden {
-            display: none;
-        }
-        @media (max-width: 768px) {
-            .modal-content {
-                width: 95%;
-            }
-            .modal .close {
-                font-size: 1.2em;
-                padding: 4px;
-            }
-            button {
-                padding: 8px 16px;
-                font-size: 1em;
-            }
-            #scrollUpBtn {
-                bottom: 10px;
-                right: 10px;
-                padding: 8px;
-            }
-        }
-        @media (max-width: 480px) {
-            .modal-content {
-                width: 100%;
-            }
-            .modal .close {
-                font-size: 1em;
-                padding: 3px;
-            }
-            button {
-                padding: 6px 12px;
-                font-size: 0.9em;
-            }
-            #scrollUpBtn {
-                padding: 6px;
-            }
-        }
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: black;
+    color: white;
+}
+
+header, nav, footer {
+    text-align: center;
+    padding: 0.5em; /* Reduced padding */
+    background-color: black;
+    color: white;
+}
+
+main {
+    margin-top: 20px; /* Adds margin to create space for the feedback button */
+    padding-top: 0; /* Removes top padding */
+}
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.image-item {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    border-radius: 10px; /* Optional: adds rounded corners to the border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: adds a shadow effect */
+}
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s, border 0.3s;
+}
+
+.image-item img.pressed {
+    border-bottom: 5px solid gold; /* Gold border on the bottom edge */
+    border-right: 5px solid gold; /* Gold border on the right edge */
+    border-top: 5px solid gold; /* Remove top border */
+    border-left: 5px solid gold; /* Remove left border */
+    box-sizing: border-box; /* Ensure the border is included in the element's width and height */
+    animation: vibrate 1s infinite; /* Apply vibrate animation */
+}
+
+@keyframes vibrate {
+    0% { border-color: #FFD700; } /* Bright gold */
+    25% { border-color: #FFC107; } /* Slightly darker gold */
+    50% { border-color: #FFA000; } /* Even darker gold */
+    75% { border-color: #FFC107; } /* Back to slightly darker gold */
+    100% { border-color: #FFD700; } /* Return to bright gold */
+}
+.image-item:hover img {
+    transform: scale(1.05);
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.modal.fade-in {
+    display: flex;
+    opacity: 1;
+}
+
+.modal.fade-out {
+    opacity: 0;
+}
+
+.modal-content {
+    background: #2e2e2e;
+    color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-top: 20px; /* Adjust as needed to move the modal content up */
+}
+
+.modal .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #444;
+    color: #f5f5f5;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 5px;
+    transition: background 0.3s;
+}
+
+.modal .close:hover {
+    background: #666;
+}
+
+.feedback-btn {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.feedback-btn:hover {
+    background: #e64a19;
+}
+
+.centered-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0; /* Adds margin to move it away from the image grid */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-size: 1.1em;
+}
+
+input, select, textarea {
+    background: #444;
+    border: 1px solid #555;
+    border-radius: 5px;
+    color: #f5f5f5;
+    padding: 10px;
+    font-size: 1em;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    background: #555;
+    border-color: #666;
+    outline: none;
+}
+
+button {
+    background: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #e64a19;
+}
+
+#scrollUpBtn {
+    position: fixed;
+    bottom: 10px; /* Adjust position from the bottom */
+    right: 10px; /* Adjust position from the right */
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+#scrollUpBtn:hover {
+    background-color: darkred;
+}
+
+footer {
+    font-size: 0.9em;
+    margin-top: 20px; /* Moves the footer up */
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+    }
+    .modal .close {
+        font-size: 1.2em;
+        padding: 4px;
+    }
+    button {
+        padding: 8px 16px;
+        font-size: 1em;
+    }
+    #scrollUpBtn {
+        bottom: 10px;
+        right: 10px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 100%;
+    }
+    .modal .close {
+        font-size: 1em;
+        padding: 3px;
+    }
+    button {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+    #scrollUpBtn {
+        padding: 6px;
+    }
+}
     </style>
 </head>
 <body>
@@ -406,22 +427,22 @@ permalink: /travelblog.html/
         });
     
         document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('.image-item img');
-            images.forEach(image => {
-                const imageId = image.getAttribute('data-image-id');
-                if (localStorage.getItem(imageId) === 'pressed') {
-                    image.classList.add('pressed');
-                }
+    const images = document.querySelectorAll('.image-item img');
+    images.forEach(image => {
+        const imageId = image.getAttribute('data-image-id');
+        if (localStorage.getItem(imageId) === 'pressed') {
+            image.classList.add('pressed');
+        }
 
-                image.addEventListener('click', function() {
-                    if (image.classList.toggle('pressed')) {
-                        localStorage.setItem(imageId, 'pressed');
-                    } else {
-                        localStorage.removeItem(imageId);
-                    }
-                });
-            });
+        image.addEventListener('click', function() {
+            if (image.classList.toggle('pressed')) {
+                localStorage.setItem(imageId, 'pressed');
+            } else {
+                localStorage.removeItem(imageId);
+            }
         });
+    });
+});
     </script>
 </body>
 </html>
