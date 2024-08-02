@@ -12,12 +12,15 @@ permalink: /posts/Edinburgh.md/
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-25QWYDWGEP"></script>
   <script>
+    
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'G-25QWYDWGEP');
   </script>
+ <!-- Favicon -->
+  <link rel="icon" href="{{ site.baseurl }}/assets/images/europa.png" type="image/x-icon">
 
   <style>
     body, html {

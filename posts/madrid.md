@@ -19,6 +19,8 @@ permalink: /posts/madrid.md/
 
     gtag('config', 'G-25QWYDWGEP');
   </script>
+ <!-- Favicon -->
+  <link rel="icon" href="{{ site.baseurl }}/assets/images/europa.png" type="image/x-icon">
 
   <style>
     body, html {

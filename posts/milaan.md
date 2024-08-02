@@ -9,6 +9,9 @@ permalink: /posts/milaan.md/
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Naar Milaan zonder geld of plan</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+   <!-- Favicon -->
+  <link rel="icon" href="{{ site.baseurl }}/assets/images/europa.png" type="image/x-icon">
+
   <style>
     body, html {
       height: 100%;
