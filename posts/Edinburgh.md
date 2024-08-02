@@ -6,32 +6,67 @@ permalink: /posts/Edinburgh.md/
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reis naar Madrid</title>
+  <title>Reis naar Edinburgh</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-25QWYDWGEP"></script>
   <script>
-    
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-25QWYDWGEP');
   </script>
- <!-- Favicon -->
+
+  <!-- Favicon -->
   <link rel="icon" href="{{ site.baseurl }}/assets/images/europa.png" type="image/x-icon">
 
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Reis naar Edinburgh">
+  <meta property="og:description" content="Een gedetailleerd verslag van mijn reis naar Edinburgh, met avonturen en uitdagingen onderweg. Lees over mijn reiservaringen, ontmoetingen en meer.">
+  <meta property="og:image" content="{{ site.baseurl }}/assets/images/refugees.png">
+  <meta property="og:url" content="{{ site.baseurl }}/posts/Edinburgh.md/">
+  <meta property="og:type" content="article">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Reis naar Edinburgh">
+  <meta name="twitter:description" content="Een gedetailleerd verslag van mijn reis naar Edinburgh, met avonturen en uitdagingen onderweg. Lees over mijn reiservaringen, ontmoetingen en meer.">
+  <meta name="twitter:image" content="{{ site.baseurl }}/assets/images/refugees.png">
+
+  <!-- Structured Data (Schema Markup) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Reis naar Edinburgh",
+    "description": "Een gedetailleerd verslag van mijn reis naar Edinburgh, met avonturen en uitdagingen onderweg.",
+    "image": "{{ site.baseurl }}/assets/images/refugees.png",
+    "author": {
+      "@type": "Person",
+      "name": "Arthur Ross"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Arthur Ross",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.baseurl }}/assets/images/europa.png"
+      }
+    },
+    "datePublished": "2024-04-10",
+    "dateModified": "2024-04-10"
+  }
+  </script>
+
   <style>
-    body, html {
+    body, html, p {
+      color: white;
       height: 100%;
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: black; /* Set the background color to black */
       color: white; /* Set text color to white */
-    }
-    body, p {
-      color: white;
     }
     h1 {
       color: green;
@@ -41,7 +76,7 @@ permalink: /posts/Edinburgh.md/
       margin-top: 20px;
       padding: 10px 20px;
       background-color: red;
-      color: white; /* Set the font color to black */
+      color: white;
       text-decoration: none;
       font-weight: bold;
       border-radius: 5px;
@@ -58,8 +93,8 @@ permalink: /posts/Edinburgh.md/
       text-align: center;
       min-height: 100vh;
       overflow: hidden;
-      max-width: 100%; /* Added max-width for better responsiveness */
-      margin: 0 auto; /* Center the content horizontally */
+      max-width: 100%;
+      margin: 0 auto;
     }
     .fullscreen-container {
       position: relative;
@@ -98,10 +133,10 @@ permalink: /posts/Edinburgh.md/
     .modal {
       display: none;
       position: fixed;
-      top: auto;
-      right: 0; /* Stick to the right */
+      top: 0;
+      right: 0;
       bottom: 0;
-      left: auto; /* Unset left */
+      left: 0;
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.8);
@@ -111,21 +146,21 @@ permalink: /posts/Edinburgh.md/
       align-items: center;
       opacity: 0;
       transition: opacity 1s ease-in-out;
-      pointer-events: none; /* Clicks on the modal won't trigger events */
+      pointer-events: none;
     }
     .modal-content {
       width: 100%;
       height: auto;
-      max-width: 100%; /* Adjusted max-width */
-      max-height: 100%; /* Adjusted max-height */
+      max-width: 100%;
+      max-height: 100%;
       object-fit: contain;
       box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
     }
     .modal-image {
       width: 100%;
       height: auto;
-      max-width: 100vw; /* Adjusted max-width to fit the viewport width */
-      max-height: 100vh; /* Adjusted max-height to fit the viewport height */
+      max-width: 100vw;
+      max-height: 100vh;
       object-fit: contain;
     }
     @keyframes fadeIn {
@@ -137,7 +172,7 @@ permalink: /posts/Edinburgh.md/
       }
     }
     .modal.fade-in {
-      animation: fadeIn 2s ease-in-out; /* Increased duration to 2 seconds */
+      animation: fadeIn 2s ease-in-out;
       opacity: 1;
     }
     .modal.fade-out {
@@ -147,11 +182,10 @@ permalink: /posts/Edinburgh.md/
       bottom: 0;
       width: 100%;
       text-align: center;
-      background-color: black; /* Same background color as body */
+      background-color: black;
       color: white;
       padding: 10px 0;
     }
-    /* Add a transition for the fade-out effect */
     .modal.fade-out .modal-content {
       transition: opacity 1s ease-in-out;
     }

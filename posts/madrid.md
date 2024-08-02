@@ -2,11 +2,13 @@
 layout: default
 permalink: /posts/madrid.md/
 ---
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Een spannend verslag van mijn avontuurlijke reis naar Madrid, inclusief onverwachte ontmoetingen, uitdagingen en hoogtepunten. Lees over mijn ervaringen van Leiden naar Madrid en alles daartussenin.">
+  <meta name="keywords" content="reisverslag, Madrid, avontuur, liften, Vincent van Gogh, kunst, Europa">
+  <meta name="author" content="Arthur Ross">
   <title>Reis naar Madrid</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
@@ -16,11 +18,26 @@ permalink: /posts/madrid.md/
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-25QWYDWGEP');
   </script>
- <!-- Favicon -->
+
+  <!-- Favicon -->
   <link rel="icon" href="{{ site.baseurl }}/assets/images/europa.png" type="image/x-icon">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Reis naar Madrid">
+  <meta property="og:description" content="Een spannend verslag van mijn avontuurlijke reis naar Madrid, inclusief onverwachte ontmoetingen, uitdagingen en hoogtepunten.">
+  <meta property="og:image" content="{{ site.baseurl }}/assets/images/starry_night.jpeg">
+  <meta property="og:url" content="{{ site.baseurl }}/posts/madrid.md/">
+  <meta property="og:site_name" content="Arthur Ross Travel Blog">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Reis naar Madrid">
+  <meta name="twitter:description" content="Een spannend verslag van mijn avontuurlijke reis naar Madrid, inclusief onverwachte ontmoetingen, uitdagingen en hoogtepunten.">
+  <meta name="twitter:image" content="{{ site.baseurl }}/assets/images/starry_night.jpeg">
+  <meta name="twitter:site" content="@ArthurRossBlog">
 
   <style>
     body, html {

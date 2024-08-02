@@ -8,10 +8,20 @@ permalink: /posts/milaan.md/
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Naar Milaan zonder geld of plan</title>
+  <meta name="description" content="Een avontuurlijk verslag over een spontane reis naar Milaan zonder geld of plan. Ontdek de uitdagingen en ervaringen van de reis door Europa, van Leiden naar Milaan, en de onverwachte ontmoetingen onderweg.">
+  <meta name="keywords" content="Milaan, avontuur, reisverslag, liften, Europa, Rotterdam, Italië, reiservaring, backpacken">
+  <meta name="author" content="Arthur Ross">
+  <meta property="og:title" content="Naar Milaan zonder geld of plan">
+  <meta property="og:description" content="Een avontuurlijk verslag over een spontane reis naar Milaan zonder geld of plan. Ontdek de uitdagingen en ervaringen van de reis door Europa.">
+  <meta property="og:image" content="{{ site.baseurl }}/assets/images/slums.jpeg">
+  <meta property="og:url" content="{{ site.baseurl }}/posts/milaan.md/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Naar Milaan zonder geld of plan">
+  <meta name="twitter:description" content="Een avontuurlijk verslag over een spontane reis naar Milaan zonder geld of plan. Ontdek de uitdagingen en ervaringen van de reis door Europa.">
+  <meta name="twitter:image" content="{{ site.baseurl }}/assets/images/slums.jpeg">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-   <!-- Favicon -->
+  <!-- Favicon -->
   <link rel="icon" href="{{ site.baseurl }}/assets/images/europa.png" type="image/x-icon">
-
   <style>
     body, html {
       height: 100%;
