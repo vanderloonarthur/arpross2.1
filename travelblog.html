@@ -60,10 +60,18 @@ permalink: /travelblog.html/
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s;
+            transition: transform 0.3s, border 0.3s;
         }
         .image-item img.pressed {
-            border: 5px solid #00ff00; /* Bright green border */
+            border: 5px solid silver;
+            animation: vibrate 0.5s infinite; /* Added animation */
+        }
+        @keyframes vibrate {
+            0% { border-color: #FFD700; }
+            25% { border-color: #FFC700; }
+            50% { border-color: #FFB700; }
+            75% { border-color: #FFC700; }
+            100% { border-color: #FFD700; }
         }
         .image-item:hover img {
             transform: scale(1.05);
@@ -258,14 +266,13 @@ permalink: /travelblog.html/
             <!-- Navigation links -->
         </nav>
     </header>
-
     <main>
         <section class="image-gallery">
             <div class="image-item">
                 <a href="/posts/milaan.md" class="golden-link">
                     <img src="/assets/images/skyline.jpg" alt="Milaan" data-image-id="milaan">
                     <div class="image-caption">
-                        <p>Naar Milaan zonder geld of plan [mei 2016]</p>
+                        <p>Marshall Milaan [mei/ juni 2016]</p>
                     </div>
                 </a>
             </div>
@@ -399,9 +406,19 @@ permalink: /travelblog.html/
         });
     
         document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.image-item img').forEach(image => {
+            const images = document.querySelectorAll('.image-item img');
+            images.forEach(image => {
+                const imageId = image.getAttribute('data-image-id');
+                if (localStorage.getItem(imageId) === 'pressed') {
+                    image.classList.add('pressed');
+                }
+
                 image.addEventListener('click', function() {
-                    image.classList.toggle('pressed');
+                    if (image.classList.toggle('pressed')) {
+                        localStorage.setItem(imageId, 'pressed');
+                    } else {
+                        localStorage.removeItem(imageId);
+                    }
                 });
             });
         });
