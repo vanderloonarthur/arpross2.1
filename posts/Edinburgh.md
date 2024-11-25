@@ -36,7 +36,7 @@ permalink: /posts/Edinburgh.md/
 
   <!-- Structured Data (Schema Markup) -->
   <script type="application/ld+json">
-  {
+    {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Reis naar Edinburgh",
@@ -60,13 +60,15 @@ permalink: /posts/Edinburgh.md/
   </script>
 
   <style>
-    body, html, p {
-      color: white;
+    body, html {
       height: 100%;
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: black; /* Set the background color to black */
       color: white; /* Set text color to white */
+    }
+    body, p {
+      color: white;
     }
     h1 {
       color: green;
@@ -76,7 +78,7 @@ permalink: /posts/Edinburgh.md/
       margin-top: 20px;
       padding: 10px 20px;
       background-color: red;
-      color: white;
+      color: white; /* Set the font color to black */
       text-decoration: none;
       font-weight: bold;
       border-radius: 5px;
@@ -93,8 +95,8 @@ permalink: /posts/Edinburgh.md/
       text-align: center;
       min-height: 100vh;
       overflow: hidden;
-      max-width: 100%;
-      margin: 0 auto;
+      max-width: 100%; /* Added max-width for better responsiveness */
+      margin: 0 auto; /* Center the content horizontally */
     }
     .fullscreen-container {
       position: relative;
@@ -133,10 +135,10 @@ permalink: /posts/Edinburgh.md/
     .modal {
       display: none;
       position: fixed;
-      top: 0;
-      right: 0;
+      top: auto;
+      right: 0; /* Stick to the right */
       bottom: 0;
-      left: 0;
+      left: auto; /* Unset left */
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.8);
@@ -146,21 +148,21 @@ permalink: /posts/Edinburgh.md/
       align-items: center;
       opacity: 0;
       transition: opacity 1s ease-in-out;
-      pointer-events: none;
+      pointer-events: none; /* Clicks on the modal won't trigger events */
     }
     .modal-content {
       width: 100%;
       height: auto;
-      max-width: 100%;
-      max-height: 100%;
+      max-width: 100%; /* Adjusted max-width */
+      max-height: 100%; /* Adjusted max-height */
       object-fit: contain;
       box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
     }
     .modal-image {
       width: 100%;
       height: auto;
-      max-width: 100vw;
-      max-height: 100vh;
+      max-width: 100vw; /* Adjusted max-width to fit the viewport width */
+      max-height: 100vh; /* Adjusted max-height to fit the viewport height */
       object-fit: contain;
     }
     @keyframes fadeIn {
@@ -172,20 +174,13 @@ permalink: /posts/Edinburgh.md/
       }
     }
     .modal.fade-in {
-      animation: fadeIn 2s ease-in-out;
+      animation: fadeIn 2s ease-in-out; /* Increased duration to 2 seconds */
       opacity: 1;
     }
     .modal.fade-out {
       opacity: 0;
     }
-    footer {
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-      background-color: black;
-      color: white;
-      padding: 10px 0;
-    }
+    /* Add a transition for the fade-out effect */
     .modal.fade-out .modal-content {
       transition: opacity 1s ease-in-out;
     }
@@ -207,13 +202,12 @@ permalink: /posts/Edinburgh.md/
 <body>
   <div class="center-content">
     <div id="newText" style="display: block;">
-      <h1>D'Arthur is coming home, april 2024</h1>
+      <h1>D'Arthur is coming home, 10 April, 2024</h1>
       <img src="{{ site.baseurl }}/assets/images/refugees.png" alt="Kaleidoscope" class="small-image" />
     </div>
     <div class="center-text">
       <h2>Een waargebeurd verhaal.</h2>
       <p>
-        10 April, 2024
         In de trein naar Antwerpen.
         Ik ben onderweg naar de bruiloft van mijn neef Duncan in Edinburgh.
         Ik zit nu in de trein en kan elk moment de grens naar België oversteken. Ik had een enkeltje Den Haag gekocht, maar niet naar Antwerpen, want heb nog maar 67 euro. Hopen dat de conducteurs me niet eruit zetten. Daar komt er al één. Shit.
@@ -277,71 +271,69 @@ permalink: /posts/Edinburgh.md/
       </p>
     </div>
   </div>
-  <footer>
-    <p>&copy; 2024 Arthur Ross. Alle rechten voorbehouden.</p>
-  </footer>
+<footer style="text-align: center;">
+  <p>&copy; 2024 Arthur Ross. Alle rechten voorbehouden.</p>
+</footer>
   <div style="text-align: center;">
     <a href='{{ site.baseurl }}../../travelblog.html' class="back-to-gallery">Back to Gallery</a>
   </div>
 
   <div id="myModal" class="modal" onclick="toggleModal()">
     <div class="modal-content fullscreen-modal">
-      <img src="{{ site.baseurl }}/assets/images/refugees.png" alt="Popup Image" class="modal-image" />
+      <img src="/assets/images/refugees.png" alt="Popup Image" class="modal-image" />
     </div>
   </div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const smallImage = document.querySelector("#newText .small-image");
-    const modal = document.getElementById('myModal');
-    const modalImage = document.querySelector(".modal-image");
+  const smallImages = document.querySelectorAll(".small-image");
+  const modal = document.getElementById("myModal");
+  const modalImage = document.querySelector(".modal-image");
 
-    // Function to open modal and show image
-    function openModal(event) {
-      if (event.target.classList.contains('small-image')) {
-        modalImage.src = event.target.src;
-        modal.style.display = 'flex';
-        modal.classList.add('fade-in');
-        modal.style.pointerEvents = 'auto';
-      }
-    }
+  // Function to open modal and show image
+  function openModal(event) {
+    modalImage.src = event.target.src;
+    modal.style.display = "flex";
+    modal.classList.add("fade-in");
+    modal.style.pointerEvents = "auto";
+  }
 
-    // Event listener to open modal when clicking on small image
+  // Add click event listener for each small image
+  smallImages.forEach((smallImage) => {
     smallImage.addEventListener("click", openModal);
-
-    // Function to close modal
-    function closeModal() {
-      modal.classList.add('fade-out');
-      setTimeout(() => {
-        modal.style.display = 'none';
-        modal.classList.remove('fade-out', 'fade-in');
-        modal.style.pointerEvents = 'none';
-      }, 1000);
-    }
-
-    // Event listener to close modal when clicking anywhere on it
-    modal.addEventListener("click", function (event) {
-      if (event.target === modal || event.target === modalImage) {
-        closeModal();
-      }
-    });
-
-    // Automatically show small image and fullscreen image on page load
-    setTimeout(function () {
-      smallImage.classList.add('show');
-      const fullscreenImage = document.querySelector(".fullscreen-image");
-      fullscreenImage.classList.add('show');
-    }, 500);
-
-    // Back to Gallery button functionality
-    const backButton = document.querySelector(".back-to-gallery");
-    backButton.addEventListener("click", function () {
-      window.location.href = "{{ site.baseurl }}/index/";
-    });
-
-    // Close modal when clicking anywhere on fullscreen image
-    modalImage.addEventListener("click", closeModal);
   });
+
+  // Function to close modal
+  function closeModal() {
+    modal.classList.add("fade-out");
+    setTimeout(() => {
+      modal.style.display = "none";
+      modal.classList.remove("fade-out", "fade-in");
+      modal.style.pointerEvents = "none";
+    }, 1000);
+  }
+
+  // Event listener to close modal when clicking anywhere on it
+  modal.addEventListener("click", function (event) {
+    if (event.target === modal || event.target === modalImage) {
+      closeModal();
+    }
+  });
+
+  // Back to Gallery button functionality
+  const backButton = document.querySelector(".back-to-gallery");
+  backButton.addEventListener("click", function () {
+    window.location.href = "{{ site.baseurl }}/index/";
+  });
+
+  // Automatically show small images and fullscreen images on page load
+  setTimeout(() => {
+    const fullscreenImage = document.querySelector(".fullscreen-image");
+    if (fullscreenImage) fullscreenImage.classList.add("show");
+    smallImages.forEach((smallImage) => smallImage.classList.add("show"));
+  }, 500);
+});
+
 </script>
 </body>
 </html>
